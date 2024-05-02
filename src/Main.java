@@ -26,7 +26,7 @@ public class Main {
 
         String[] words2 = {"all", "in", "the", "beat", "box"};
         String letters2 = "ea";
-        List<Object> result2 = new ArrayList<>();
+        List<String> result2 = new ArrayList<>();
 
         for (String word : words2) {
             for (int i = 0; i < letters2.toCharArray().length; i++) {
@@ -37,6 +37,15 @@ public class Main {
                 }
             }
         }
+
+        /*for (String word : words2) {
+            for (char letter : letters2.toCharArray()) {
+                if (word.contains(String.valueOf(letter))) {
+                    result2.add(word);
+                    break; // Exit the inner loop once a match is found in the word
+                }
+            }
+        }*/
         System.out.println("result2= "+result2);
 
     }
