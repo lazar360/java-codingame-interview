@@ -4,49 +4,51 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // 1- In a given array [all, in, the, beat, box]
-        // return an array that matches all letters "ea"
+        String citation = "Je suis adroit de la main gauche et je suis gauche de la main droite";
+        String[] citArr = citation.toLowerCase().split(" ");
 
-        String[] words1 = {"all", "in", "the", "beat", "box"};
-        String letters = "ea";
-        List<Object> result = new ArrayList<>();
-        for (String word : words1) {
-            if (word.contains(letters)){
-                result.add(word);
+        // find word main
+        // find word contains sequence "oit"
+        // find word contains letters "oit"
+
+        List<String> result = Arrays.stream(citArr).filter(cit -> cit.equals("main")).toList();
+        /*List<String> result = new ArrayList<>();
+        for (String cit : citArr) {
+            if (cit.equals("main")) {
+                result.add(cit);
+                break;
             }
-        }
-        System.out.println("result= " + result);
+        }*/
+        System.out.println(result);
 
-        /*String[] resultArray = Arrays.stream(array)
-                .filter(word -> word.contains("ea"))
-                .toArray(String[]::new);*/
+        List<String> result2 = Arrays.stream(citArr).filter(cit-> cit.contains("oit")).toList();
+        // String result2Str = String.join(", ", result2);
+        // System.out.println(result2Str);
 
-        // 2- In a given array [all, in, the, beat, box]
-        // return an array that matches one letter "ea"
+        /*List<String> result2 = new ArrayList<>();
+        for (String cit : citArr) {
+            if (cit.contains("oi")) {
+                result2.add(cit);
+            }
+        }*/
+        System.out.println(result2);
 
-        String[] words2 = {"all", "in", "the", "beat", "box"};
-        String letters2 = "ea";
-        List<String> result2 = new ArrayList<>();
-
-        for (String word : words2) {
-            for (int i = 0; i < letters2.toCharArray().length; i++) {
-                for (char character : word.toCharArray()) {
-                    if (letters2.toCharArray()[i] == character){
-                        if(!result2.contains(word)) result2.add(word);
+        List<String> result3 = new ArrayList<>();
+        /*for (String word : citArr) {
+            for (int i = 0; i < word.toCharArray().length; i++) {
+                if (word.contains("o") || word.contains("i")) {
+                    String tmp = word;
+                    if (!result3.contains(tmp)) {
+                        result3.add(word);
                     }
-                }
-            }
-        }
-
-        /*for (String word : words2) {
-            for (char letter : letters2.toCharArray()) {
-                if (word.contains(String.valueOf(letter))) {
-                    result2.add(word);
-                    break; // Exit the inner loop once a match is found in the word
+                    break;
                 }
             }
         }*/
-        System.out.println("result2= "+result2);
-
+        result3 = Arrays.stream(citArr)
+                .filter(word -> word.contains("o") || word.contains("i"))
+                .distinct()
+                .toList();
+        System.out.println(result3);
     }
 }
