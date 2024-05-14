@@ -50,5 +50,13 @@ public class Main {
                 .distinct()
                 .toList();
         System.out.println(result3);
+
+        // Print int
+        System.out.println("Print result for i += result - range i = 1 to 10");
+        System.out.println(IntStream.range(1,10).sum());
+
+        // Print int
+        System.out.println("Print result for i *= result - range i = 1 to 10");
+        System.out.println(IntStream.range(1, 4).reduce(1, (a, b) -> a * b));
     }
 }
